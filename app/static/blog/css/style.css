@@ -1,0 +1,27 @@
+body {
+  background-color: #98ded9;
+  color: white;
+}
+
+.form-control {
+  background-color: #94b5c0;
+}
+
+.jumbo-color {
+  background-color: #161d6f;
+}
+
+.nav-color{
+
+  background-color: #161d6f;
+}
+
+.error-color{
+
+  color: #161d6f;
+}
+
+.bd{
+  border-width: 5px;
+
+}
