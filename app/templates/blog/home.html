@@ -4,7 +4,7 @@
 
 <div class="col-sm-10">
  <h3 class="my-5">Home Page</h3>
-  {% for post in posts %}
+  {% for post in page_obj %}
     <div class="jumbotron jumbotron-fluid jumbo-color">
       <div class="container">
         <h1 class="display-4 font-weight-bold">{{post.title}}</h1>
@@ -12,6 +12,31 @@
       </div>
     </div>
   {% endfor %}
+
+  <div class="row justify-content-center">
+  	<nav aria-label="Page navigation example">
+  			<ul class="pagination">
+  	
+		  		{% if page_obj.has_previous %}
+		  		<li class="page-item"><a href="?page={{page_obj.previous_page_number}}" class="page-link">Previous</a></li>
+		  		
+		  		{% endif %}
+		  		
+		  		{% for i in page_obj.paginator.page_range %}
+		  			{% if page_obj.number == i %}
+		  				<li class="active page-item"><a href="" class="page-link">{{i}}</a></li>
+		  			{% else %}
+		  				<li class="page-item"><a href="?page={{i}}" class="page-link">{{i}}</a></li>
+		  			{% endif %}
+		  		{% endfor %}
+
+		  		{% if page_obj.has_next %}
+		  		<li class="page-item"><a href="?page={{page_obj.next_page_number}}" class="page-link">Next</a></li>
+		  		
+		  		{% endif %}
+  			</ul>
+  	</nav>
+  </div>
 
 </div>
 
